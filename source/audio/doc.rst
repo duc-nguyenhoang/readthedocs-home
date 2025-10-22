@@ -39,7 +39,7 @@ Init process loads the init scripts from /system/etc/init directory
 
     - `frameworks/av/media/audioserver/audioserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/audioserver/audioserver.rc>`_
 
-    code-block :: text
+    .. code-block :: text
 
         service audioserver /system/bin/audioserver
             class core
@@ -50,7 +50,7 @@ Init process loads the init scripts from /system/etc/init directory
 
     - `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_
 
-    code-block :: text
+    .. code-block :: text
 
         on property:init.svc.media=*
             setprop init.svc.mediadrm ${init.svc.media}
