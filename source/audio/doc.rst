@@ -3,14 +3,9 @@ Audio
 =====
 Booting Sequence (android-16.0.0_r2)
 ==========================================
-1.Init process: `/system/core/init/init.cpp <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:system/core/init/init.cpp>`_ \
+1. Init process: `/system/core/init/init.cpp <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:system/core/init/init.cpp>`_
+
 Init process loads the init scripts from /system/etc/init directory
-This is the top level of the U-Boot's documentation tree.  U-Boot
-documentation, like the U-Boot itself, is very much a work in progress;
-that is especially true as we work to integrate our many scattered
-documents into a coherent whole.  Please note that improvements to the
-documentation are welcome; join the U-Boot list at http://lists.denx.de
-if you want to help out.
 
 .. code-block:: cpp
 
@@ -41,9 +36,10 @@ if you want to help out.
     }
 
 2. Init scripts
-| audioserver, mediaserver init scripts:
-| - `frameworks/av/media/audioserver/audioserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/audioserver/audioserver.rc>`_
-| - `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_`
+audioserver, mediaserver init scripts:
+
+    - `frameworks/av/media/audioserver/audioserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/audioserver/audioserver.rc>`_
+    - `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_`
 
 2. init script
 audioserver.rc
