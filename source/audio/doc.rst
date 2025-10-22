@@ -7,11 +7,6 @@ Booting Sequence
 
 Init process loads the init scripts from /system/etc/init directory
 
-// ...existing code...
-1. Init process: `/system/core/init/init.cpp <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:system/core/init/init.cpp>`_
-   Init process loads the init scripts from /system/etc/init directory
-// ...existing code...
-
 .. code-block:: cpp
 
     static void LoadBootScripts(ActionManager& action_manager, ServiceList& service_list) {
@@ -40,27 +35,32 @@ Init process loads the init scripts from /system/etc/init directory
         }
     }
 
-2. Init scripts
-audioserver, mediaserver
+2. audioserver, mediaserver scripts
 
     - `frameworks/av/media/audioserver/audioserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/audioserver/audioserver.rc>`_
-    - `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_`
 
-2. init script
-audioserver.rc
+    code-block :: text
 
-service audioserver /system/bin/audioserver
-    class core
-    user audioserver <- UID
-    # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
-    group audio camera drmrpc media mediadrm net_bt net_bt_admin net_bw_acct wakelock <- GID
+        service audioserver /system/bin/audioserver
+            class core
+            user audioserver
+            # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
+            group audio camera drmrpc media mediadrm net_bt net_bt_admin net_bw_acct wakelock
+            capabilities BLOCK_SUSPEND
 
-mediaserver.rc
+    - `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_
 
-service media /system/bin/mediaserver
-    class main
-    user media <- UID
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm <- GID
+    code-block :: text
+
+        on property:init.svc.media=*
+            setprop init.svc.mediadrm ${init.svc.media}
+
+        service media /system/bin/mediaserver
+            class main
+            user media
+            group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
+            ioprio rt 4
+            task_profiles ProcessCapacityHigh HighPerformance
 
 3. server
 audioserver - main_audioserver.cpp
