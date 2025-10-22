@@ -9,7 +9,7 @@ Android
    android/flash
 
 .. toctree::
-   :caption Android Audio
+   :caption: Android Audio
    :maxdepth: 2
 
    audio/doc
