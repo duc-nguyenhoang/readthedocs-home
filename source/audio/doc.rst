@@ -3,9 +3,8 @@ Audio
 =====
 Booting Sequence (android-16.0.0_r2)
 ==========================================
-1. Init process: `/system/core/init/init.cpp <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:system/core/init/init.cpp>`_
-
-| Init process loads the init scripts from /system/etc/init directory
+1. Init process: `/system/core/init/init.cpp <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:system/core/init/init.cpp>`_ \
+Init process loads the init scripts from /system/etc/init directory
 
 .. code-block:: cpp
 
