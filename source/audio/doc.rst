@@ -5,7 +5,7 @@ Booting Sequence
 ================
 1. Init process: `/system/core/init/init.cpp <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:system/core/init/init.cpp>`_
 
-Init process loads the init scripts from /system/etc/init directory
+Init process loads init scripts from /system/etc/init
 
 .. code-block:: cpp
 
@@ -43,9 +43,9 @@ Init process loads the init scripts from /system/etc/init directory
 
         service audioserver /system/bin/audioserver
             class core
-            user audioserver
+            user audioserver    <= UID
             # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
-            group audio camera drmrpc media mediadrm net_bt net_bt_admin net_bw_acct wakelock
+            group audio camera drmrpc media mediadrm net_bt net_bt_admin net_bw_acct wakelock   <= GID
             capabilities BLOCK_SUSPEND
 
     - `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_
@@ -57,12 +57,13 @@ Init process loads the init scripts from /system/etc/init directory
 
         service media /system/bin/mediaserver
             class main
-            user media
-            group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
+            user media   <= UID
+            group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm      <= GID
             ioprio rt 4
             task_profiles ProcessCapacityHigh HighPerformance
 
-3. server
+3. audioserver and mediaserver
+
 audioserver - main_audioserver.cpp
 -AudioFlinger instantiate
 const auto af = sp<AudioFlinger>::make();
