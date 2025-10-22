@@ -1,12 +1,10 @@
 =====
 Audio
 =====
-Booting Sequence
-================
-For android-16.0.0_r2
-
+Booting Sequence (android-16.0.0_r2)
+==========================================
 1. Init process: `/system/core/init/init.cpp <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:system/core/init/init.cpp>`_
-Init process loads the init scripts from /system/etc/init directory
+| Init process loads the init scripts from /system/etc/init directory
 
 .. code-block:: cpp
 
@@ -37,9 +35,9 @@ Init process loads the init scripts from /system/etc/init directory
     }
 
 2. Init scripts
-audioserver, mediaserver init scripts:
-- `frameworks/av/media/audioserver/audioserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/audioserver/audioserver.rc>`_
-- `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_`
+| audioserver, mediaserver init scripts:
+| - `frameworks/av/media/audioserver/audioserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/audioserver/audioserver.rc>`_
+| - `frameworks/av/media/mediaserver/mediaserver.rc <https://cs.android.com/android/platform/superproject/+/android-16.0.0_r2:frameworks/av/media/mediaserver/mediaserver.rc>`_`
 
 2. init script
 audioserver.rc
