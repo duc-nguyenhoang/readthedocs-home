@@ -1,7 +1,7 @@
 Android
 =================
 .. toctree::
-   :caption: Android RISC-V
+   :caption: Android RV
    :maxdepth: 2   
 
    android/hardware
