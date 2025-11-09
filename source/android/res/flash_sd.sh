@@ -54,8 +54,12 @@ sudo mkdir -p ${BOOT_MOUNT}
 sudo mount ${DEVICE}3 ${BOOT_MOUNT}
 
 # Copy the boot files
-echo "[7/7] Copying boot files..."
-sudo cp -rv ${IMAGE_DIR}/boot/* ${BOOT_MOUNT}/
+echo "[7/7] Copying boot folder..."
+sudo mkdir -p ${BOOT_MOUNT}/boot/extlinux
+sudo mkdir -p ${BOOT_MOUNT}/boot/dtbs/starfive
+sudo cp -v ${IMAGE_DIR}/jh7110-starfive-visionfive-2-v1.2a.dtb ${BOOT_MOUNT}/boot/dtbs/starfive
+sudo cp -v ${IMAGE_DIR}/boot/extlinux/extlinux.conf ${BOOT_MOUNT}/boot/extlinux/
+sudo cp -v ${IMAGE_DIR}/boot/uEnv.txt ${BOOT_MOUNT}/boot/
 sudo cp -v ${IMAGE_DIR}/ramdisk.img ${BOOT_MOUNT}/
 sudo mkdir -p ${BOOT_MOUNT}/dtbs/starfive
 sudo cp -v ${IMAGE_DIR}/jh7110-starfive-visionfive-2-v1.2a.dtb ${BOOT_MOUNT}/dtbs/starfive/
