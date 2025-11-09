@@ -170,11 +170,17 @@ Copy the boot files to SD card
 
 .. code-block:: bash
     
-    sudo cp -rv boot/* ${BOOT_MOUNT}/
-    sudo cp -v ramdisk.img ${BOOT_MOUNT}/
+    # Copy the boot files
+    echo "[7/7] Copying boot folder..."
+    sudo mkdir -p ${BOOT_MOUNT}/boot/extlinux
+    sudo mkdir -p ${BOOT_MOUNT}/boot/dtbs/starfive
+    sudo cp -v ${IMAGE_DIR}/jh7110-starfive-visionfive-2-v1.2a.dtb ${BOOT_MOUNT}/boot/dtbs/starfive
+    sudo cp -v ${IMAGE_DIR}/boot/extlinux/extlinux.conf ${BOOT_MOUNT}/boot/extlinux/
+    sudo cp -v ${IMAGE_DIR}/boot/uEnv.txt ${BOOT_MOUNT}/boot/
+    sudo cp -v ${IMAGE_DIR}/ramdisk.img ${BOOT_MOUNT}/
     sudo mkdir -p ${BOOT_MOUNT}/dtbs/starfive
-    sudo cp -v jh7110-starfive-visionfive-2-v1.2a.dtb ${BOOT_MOUNT}/dtbs/starfive/
-    sudo cp -v Image.gz ${BOOT_MOUNT}/
+    sudo cp -v ${IMAGE_DIR}/jh7110-starfive-visionfive-2-v1.2a.dtb ${BOOT_MOUNT}/dtbs/starfive/
+    sudo cp -v ${IMAGE_DIR}/Image.gz ${BOOT_MOUNT}/
 
 Sync and unmount
 
@@ -197,6 +203,16 @@ Set the board to SD boot mode by configuring the BOOT MODE DIP switch as shown b
          :width: 500px
 
 Insert the prepared SD card into the board and power it on. The board should boot into the Android system.
+
+Enter uboot console by pressing any key during the countdown and verify environment variables if needed
+
+.. code-block:: bash
+
+    StarFive # printenv bootdir bootenv bootfile fdtfile
+    bootdir=/boot
+    bootenv=/boot/uEnv.txt
+    bootfile=/boot/extlinux/extlinux.conf
+    fdtfile=starfive/jh7110-starfive-visionfive-2-v1.2a.dtb
 
 Android Boot messages example:
 
