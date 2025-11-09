@@ -7,16 +7,16 @@ Android
    android/hardware
    android/build
    android/flash
-
-.. toctree::
+..
+   .. toctree::
    :caption: Android Audio
    :maxdepth: 2
 
    audio/doc
 
-.. toctree::
-..   :caption: Reverse Engineering
-..   :maxdepth: 2
+   .. toctree::
+   :caption: Reverse Engineering
+   :maxdepth: 2
 
-..   reverse/android
-..   reverse/binary
+   reverse/android
+   reverse/binary
