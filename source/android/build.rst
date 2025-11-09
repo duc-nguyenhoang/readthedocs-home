@@ -184,6 +184,10 @@ Sync and unmount
     sudo umount ${BOOT_MOUNT}
     sudo rm -rf ${BOOT_MOUNT}
 
+*Download the flash script here:
+
+:download:`flash_sd.sh <res/flash_sd.sh>`
+
 Booting the board
 =================
 Set the board to SD boot mode by configuring the BOOT MODE DIP switch as shown below

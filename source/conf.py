@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'My Home'
+project = 'arv'
 copyright = '2025, Duc Nguyen'
 author = 'Duc Nguyen'
 

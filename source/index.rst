@@ -1,16 +1,22 @@
-Android RISC-V
+Android
 =================
 .. toctree::
-   :caption: Android RISC-V
+   :caption: Android RV
    :maxdepth: 2   
 
    android/hardware
    android/build
    android/flash
+..
+   .. toctree::
+   :caption: Android Audio
+   :maxdepth: 2
 
-.. toctree::
-..   :caption: Reverse Engineering
-..   :maxdepth: 2
+   audio/doc
 
-..   reverse/android
-..   reverse/binary
+   .. toctree::
+   :caption: Reverse Engineering
+   :maxdepth: 2
+
+   reverse/android
+   reverse/binary
